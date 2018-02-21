@@ -16,9 +16,9 @@ foreach($arrayFileProvincias as $a){
 foreach($arrayFileMunicipios as $b){
     $municipio = explode("%", $b);
 //    $cont++;
-    array_push($arrayProvincias[$municipio[2]], $municipio[1], $municipio[3]);
+    array_push($arrayProvincias[$municipio[2]], [$municipio[1], $municipio[3]]);
 }
-//var_dump($arrayProvincias);echo "<br/>";
+var_dump($arrayProvincias);echo "<br/>";
 
 
 ?>
@@ -34,17 +34,18 @@ foreach($arrayFileMunicipios as $b){
         </tr>
         <?php
 
+
         foreach($arrayProvincias as $k => $v){
-              echo  "<tr><td>" .$v[0]."__Municipios:";
-              $municipios = $v;
-            foreach($municipios as $i){
-                echo $i.", ";
+            foreach($v as $key =>$i){
+                if($i[1]!=)
+                echo  "<tr><td>" .$v[0]."__".$i[0].":</td><td>".$i[1]."</td>";
             }
 
+
             echo"</td>";
-               foreach($municipios as $p){
-               echo"<td>$p[1]</td>";
-               }
+//                foreach($municipios as $p){
+//               echo"<td>$p[1]</td>";
+//               }
             echo"<tr>";
 
         }

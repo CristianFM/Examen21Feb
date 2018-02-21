@@ -7,7 +7,7 @@
 <body>
 
 Examen de PHP (21 de febrero de 2018 )
-
+<a "window.location='../webs/pagIndex.html'">Listado Comunidades</a>
 
 </body>
 </html>
