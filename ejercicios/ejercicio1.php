@@ -36,19 +36,22 @@ foreach($arrayFileMunicipios as $b){
 
         foreach($arrayProvincias as $k => $v){
             $cont=0;
+            echo "<tr><td style='font-size:20px;font-weight:bold;'>.$v[0].</td><td></td></tr>";
             foreach($v as $key =>$i){
+//                $number = $i[1].;
                 if(!$cont==0){
                     echo  "<tr><td>" .$v[0]."__".$i[0].":</td><td>".$i[1]."</td>";
                 }
                 $cont++;
             }
+            echo "<tr><td style='font-size:15px;'>Total Provincia</td><td>x</td></tr>";
             echo"</td>";
 //                foreach($municipios as $p){
 //               echo"<td>$p[1]</td>";
 //               }
             echo"<tr>";
         }
-        echo "<tr><td>total</td><td>".$total."</td></tr>";
+        echo "<tr><td style='ont-size:20px;font-weight:bolder;'>Total España</td><td>".$total."</td></tr>";
         ?>
     </table>
 </body>
