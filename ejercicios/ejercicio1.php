@@ -2,9 +2,9 @@
 
 $arrayFileProvincias = file("../ficheros/comunidades.txt");
 $arrayFileMunicipios = file("../ficheros/municipios.txt");
-
 $arrayProvincias = [];
-$total=0;
+
+
 foreach($arrayFileProvincias as $a){
     $provincia = explode("%", $a);
     if(!isset($arrayProvincias[$provincia[0]])){
@@ -12,13 +12,13 @@ foreach($arrayFileProvincias as $a){
     }
     array_push($arrayProvincias[$provincia[0]], $provincia[1]);
 }
-//var_dump($arrayProvincias);
 foreach($arrayFileMunicipios as $b){
     $municipio = explode("%", $b);
-//    $cont++;
     array_push($arrayProvincias[$municipio[2]], [$municipio[1], $municipio[3]]);
 }
-//var_dump($arrayProvincias["1"]);echo "<br/>";
+
+$prueba = 50;
+$pruebaNumero = ($prueba);
 
 ?>
 <html>
@@ -32,26 +32,26 @@ foreach($arrayFileMunicipios as $b){
             <th>Poblacion</th>
         </tr>
         <?php
-
-
+        $total=0;
+        $totalProvincia=0;
         foreach($arrayProvincias as $k => $v){
             $cont=0;
             echo "<tr><td style='font-size:20px;font-weight:bold;'>.$v[0].</td><td></td></tr>";
             foreach($v as $key =>$i){
-//                $number = $i[1].;
+                if(is_numeric(trim($i[1]))){
+                    $numeroASumar= trim($i[1]);
+
+                    $totalProvincia += $numeroASumar;
+                    $total += $numeroASumar;
+                }
                 if(!$cont==0){
-                    echo  "<tr><td>" .$v[0]."__".$i[0].":</td><td>".$i[1]."</td>";
+                    echo  "<tr><td>" .$v[0]."__".$i[0].":</td><td>".$i[1]."</td></tr>";
                 }
                 $cont++;
             }
-            echo "<tr><td style='font-size:15px;'>Total Provincia</td><td>x</td></tr>";
-            echo"</td>";
-//                foreach($municipios as $p){
-//               echo"<td>$p[1]</td>";
-//               }
-            echo"<tr>";
+            echo "<tr><td style='font-size:15px;'>Total Provincia</td><td>$totalProvincia</td></tr>";
         }
-        echo "<tr><td style='ont-size:20px;font-weight:bolder;'>Total España</td><td>".$total."</td></tr>";
+        echo "<tr><td style='font-size:20px;font-weight:bolder;'>Total España</td><td>".$total."</td></tr>";
         ?>
     </table>
 </body>
